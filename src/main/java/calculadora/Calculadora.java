@@ -12,11 +12,8 @@ public class Calculadora {
                 return (double) a - b;
 
             case "/":
-                if (b == 0) {
-                    throw new IllegalArgumentException(
-                            "Não é possível dividir por zero.");
-                }
 
+                validarDivisor(b);
                 return (double) a / b;
 
             case "*":
@@ -26,5 +23,14 @@ public class Calculadora {
                 throw new IllegalArgumentException(
                         "Operação inválida. Use +, -, / ou *.");
         }
+    }
+
+    private void validarDivisor(int b) {
+
+        if (b == 0) {
+            throw new IllegalArgumentException(
+                    "Não é possível dividir por zero.");
+        }
+
     }
 }
